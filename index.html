@@ -87,7 +87,7 @@
 <body class="fade-in">
     <div class="container fade-in">
         <h1>EBook AI Học Tập</h1>
-        <p>Choose a subject and chapter to proceed:</p>
+        <p>Chọn môn học và chương để tiếo tục:</p>
 
         <div>
             <label for="subject">Chọn môn học:</label>
@@ -141,7 +141,7 @@
             links[subject].forEach((_, index) => {
                 const option = document.createElement('option');
                 option.value = index;
-                option.textContent = `Chapter ${index + 1}`;
+                option.textContent = `Chương ${index + 1}`;
                 chapterSelect.appendChild(option);
             });
         }
