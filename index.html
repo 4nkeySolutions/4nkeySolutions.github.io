@@ -3,7 +3,7 @@
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter Selector</title>
+    <title>EBook AI Học tập</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -93,15 +93,15 @@
         <div>
             <label for="subject">Select Subject:</label>
             <select id="subject" onchange="updateChapters()">
-                <option value="math">Math</option>
-                <option value="literature">Literature</option>
-                <option value="english">English</option>
+                <option value="math">Toán Học</option>
+                <option value="literature">Văn Học</option>
+                <option value="english">Tiếng Anh</option>
             </select>
         </div>
 
         <div>
             <label for="chapter">Select Chapter:</label>
-            <select id="chapter"><option value="0">Chapter 1</option><option value="1">Chapter 2</option><option value="2">Chapter 3</option><option value="3">Chapter 4</option><option value="4">Chapter 5</option></select>
+            <select id="chapter"><option value="0">Chương 1</option><option value="1">Chương 2</option><option value="2">Chương 3</option><option value="3">Chương 4</option><option value="4">Chương 5</option></select>
         </div>
 
         <button onclick="openLink()">Go</button>
@@ -114,23 +114,23 @@
     <script>
         const links = {
             math: [
-                'https://example.com/math/chapter1',
-                'https://example.com/math/chapter2',
-                'https://example.com/math/chapter3',
-                'https://example.com/math/chapter4',
-                'https://example.com/math/chapter5'
+                'https://read.bookcreator.com/lHAx3GF33CRmzK9iT7QBbWqdppE3/tV0LN449QKC34MrFL8baLw',
+                'https://read.bookcreator.com/iFquvxmk8KWC5NEipeUGX0MoMeV2/ojiW6FMSQJeaErrbrbitAg',
+                'https://read.bookcreator.com/iFquvxmk8KWC5NEipeUGX0MoMeV2/Xva1GSBISaKI8SQ2axhnpQ',
+                'https://read.bookcreator.com/iFquvxmk8KWC5NEipeUGX0MoMeV2/TjTFNDHkQkubeuhpkp1bQA',
+                'https://read.bookcreator.com/iFquvxmk8KWC5NEipeUGX0MoMeV2/rB364aAhRRiByH0514mN8A'
             ],
             literature: [
-                'https://example.com/literature/chapter1',
-                'https://example.com/literature/chapter2',
-                'https://example.com/literature/chapter3',
-                'https://example.com/literature/chapter4'
+                'https://read.bookcreator.com/iFquvxmk8KWC5NEipeUGX0MoMeV2/JS9UT7i6QXyoPnUDhxma-A',
+                'https://read.bookcreator.com/iFquvxmk8KWC5NEipeUGX0MoMeV2/xmKFv4h6TiOZLxRyRB-n0A/_4FFk4h4Sf-qoR4rpqDHag',
+                'https://read.bookcreator.com/iFquvxmk8KWC5NEipeUGX0MoMeV2/Zy0NAjkmQL-m5HTqhpfXyw/9WMHouLnSquRMuPqCuf-9w',
+                'https://read.bookcreator.com/rXYLnH5iPMPjNmvQgWaJaFvDFzP2/LRJ8-2tjTyCqBl-l8xKXZA/ArdIyOqfTN2qTfB78ggqpg'
             ],
             english: [
-                'https://example.com/english/chapter1',
-                'https://example.com/english/chapter2',
-                'https://example.com/english/chapter3',
-                'https://example.com/english/chapter4'
+                'https://read.bookcreator.com/iFquvxmk8KWC5NEipeUGX0MoMeV2/4KKTIIlNRcSW3EH7fnoFIQ/sRMSsyVrTViFnVW1hhg3yg',
+                'https://read.bookcreator.com/iFquvxmk8KWC5NEipeUGX0MoMeV2/gI__J2OpTK2niH9c7ga9FQ/0rv89IsRRIiG4erwmqHdGg',
+                'https://read.bookcreator.com/lK2boplhanbBNwLjoCPNEo810RR2/lU3491RARGaCMAMf5Ct41Q/JnAiv5YVR2iaCHYzh25A4w',
+                'https://read.bookcreator.com/iFquvxmk8KWC5NEipeUGX0MoMeV2/qZJ9vMeoSNa46lO0v8kLsg/KAQ5anXJRJeJ3ERWZvlU8g'
             ]
         };
 
