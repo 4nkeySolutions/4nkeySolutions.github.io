@@ -3,14 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ankey666---</title>
+    <title>Play Sound and Swap Images</title>
     <style>
         body {
             margin: 0;
             height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             background-color: #f0f0f0;
             cursor: pointer;
             font-family: Arial, sans-serif;
@@ -25,11 +22,8 @@
 
         .blinking-text {
             position: absolute;
-            font-size: 4rem;
+            font-size: 3rem;
             font-weight: bold;
-            top: 10%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             display: none;
             z-index: 10; /* Ensure text appears above everything else */
         }
@@ -53,8 +47,6 @@
 </head>
 <body>
     <div class="message"> </div>
-    <div class="blinking-text" id="blinking-text">HOANG SEX OC BUOI</div>
-    
     <div class="image-container">
         <img id="image1" src="image1.jpg" alt="Image 1">
         <img id="image2" src="image2.jpg" alt="Image 2">
@@ -64,7 +56,18 @@
 
     <script>
         let isImage1Visible = true;
-        let textIntervalId, imageIntervalId;
+        let textIntervalId, imageIntervalId, addTextIntervalId;
+
+        const textList = [
+            "HOANG SEX THU DAM",
+            "virus hoangsex666",
+            "Hoang Sex thu dam 4 lan 1 ngay",
+            "hoang sex oc buoi ngu loz",
+            "hoang sex ko mac sip 6",
+	    "hoang sex them dit gai chau phi",
+	    "hoang sex bu buoi cho",
+	    "hoangsex...666"
+        ];
 
         document.body.addEventListener('click', () => {
             const audio = document.getElementById('sound');
@@ -75,7 +78,6 @@
 
             const image1 = document.getElementById('image1');
             const image2 = document.getElementById('image2');
-            const blinkingText = document.getElementById('blinking-text');
 
             if (!imageIntervalId) {
                 imageIntervalId = setInterval(() => {
@@ -87,15 +89,32 @@
                         image2.style.display = 'none';
                     }
                     isImage1Visible = !isImage1Visible;
-                }, 100); // Swap images every 500ms
+                }, 110); // Swap images every 500ms
             }
 
-            if (!textIntervalId) {
-                textIntervalId = setInterval(() => {
+            if (!addTextIntervalId) {
+                addTextIntervalId = setInterval(() => {
                     const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-                    blinkingText.style.color = randomColor;
-                    blinkingText.style.display = blinkingText.style.display === 'none' ? 'block' : 'none';
-                }, 40); // Blink text with a different cycle (300ms)
+                    const randomX = Math.random() * window.innerWidth;
+                    const randomY = Math.random() * window.innerHeight;
+                    const randomText = textList[Math.floor(Math.random() * textList.length)];
+
+                    const newText = document.createElement('div');
+                    newText.className = 'blinking-text';
+                    newText.style.color = randomColor;
+                    newText.style.left = `${randomX}px`;
+                    newText.style.top = `${randomY}px`;
+                    newText.style.position = 'absolute';
+                    newText.style.zIndex = 10;
+                    newText.textContent = randomText;
+
+                    document.body.appendChild(newText);
+
+                    setInterval(() => {
+                        newText.style.color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+                        newText.style.display = newText.style.display === 'none' ? 'block' : 'none';
+                    }, 140); // Blink text every 300ms
+                }, 400); // Add new text every 1 second
             }
         });
     </script>
