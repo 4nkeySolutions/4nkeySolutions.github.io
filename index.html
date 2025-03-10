@@ -1,169 +1,34 @@
 <!DOCTYPE html>
-<!-- saved from url=(0028)file:///D:/adddwfs/demo.html -->
-<html lang="en"><head><link rel="icon" href="favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EBook AI Học Tập</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
-            text-align: center;
-            padding: 20px;
-            margin: 0;
-            color: #333;
-        }
-        h1 {
-            color: #222;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        p {
-            color: #444;
-            font-size: 1.2rem;
-        }
-        select, button {
-            margin: 10px;
-            padding: 12px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        select {
-            background-color: #fff;
-            color: #333;
-        }
-        button {
-            background-color: #4facfe;
-            color: #fff;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #00f2fe;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-        }
-        .container {
-            background: rgba(255, 255, 255, 0.85);
-            padding: 30px;
-            border-radius: 15px;
-            display: inline-block;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            animation: slideIn 1.2s ease-in-out;
-        }
-        footer {
-            margin-top: 20px;
-            color: #555;
-            font-size: 0.9rem;
-        }
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-    </style>
-</head>
-<body class="fade-in">
-    <div class="container fade-in">
-        <h1>EBook AI Học Tập</h1>
-        <p>Chọn môn học và chương để tiếo tục:</p>
-
-        <div>
-            <label for="subject">Chọn môn học:</label>
-            <select id="subject" onchange="updateChapters()">
-                <option value="math">Toán Học</option>
-                <option value="literature">Văn Học</option>
-                <option value="english">Tiếng Anh</option>
-            </select>
-        </div>
-
-        <div>
-            <label for="chapter">Chọn chương:</label>
-            <select id="chapter"><option value="0">Chương 1</option><option value="1">Chương 2</option><option value="2">Chương 3</option><option value="3">Chương 4</option><option value="4">Chương 5</option></select>
-        </div>
-
-        <button onclick="openLink()">Go</button>
-    </div>
-
-    <footer>
-        © 2025 EBook AI Học Tập. All rights reserved.
-    </footer>
-
+    <title>Random Redirect</title>
     <script>
-        const links = {
-            math: [
-                'https://read.bookcreator.com/lHAx3GF33CRmzK9iT7QBbWqdppE3/tV0LN449QKC34MrFL8baLw',
-                'https://read.bookcreator.com/iFquvxmk8KWC5NEipeUGX0MoMeV2/ojiW6FMSQJeaErrbrbitAg',
-                'https://read.bookcreator.com/iFquvxmk8KWC5NEipeUGX0MoMeV2/Xva1GSBISaKI8SQ2axhnpQ',
-                'https://read.bookcreator.com/iFquvxmk8KWC5NEipeUGX0MoMeV2/TjTFNDHkQkubeuhpkp1bQA',
-                'https://read.bookcreator.com/iFquvxmk8KWC5NEipeUGX0MoMeV2/rB364aAhRRiByH0514mN8A'
-            ],
-            literature: [
-                'https://read.bookcreator.com/iFquvxmk8KWC5NEipeUGX0MoMeV2/JS9UT7i6QXyoPnUDhxma-A',
-                'https://read.bookcreator.com/iFquvxmk8KWC5NEipeUGX0MoMeV2/xmKFv4h6TiOZLxRyRB-n0A/_4FFk4h4Sf-qoR4rpqDHag',
-                'https://read.bookcreator.com/iFquvxmk8KWC5NEipeUGX0MoMeV2/Zy0NAjkmQL-m5HTqhpfXyw/9WMHouLnSquRMuPqCuf-9w',
-                'https://read.bookcreator.com/rXYLnH5iPMPjNmvQgWaJaFvDFzP2/LRJ8-2tjTyCqBl-l8xKXZA/ArdIyOqfTN2qTfB78ggqpg'
-            ],
-            english: [
-                'https://read.bookcreator.com/iFquvxmk8KWC5NEipeUGX0MoMeV2/4KKTIIlNRcSW3EH7fnoFIQ/sRMSsyVrTViFnVW1hhg3yg',
-                'https://read.bookcreator.com/iFquvxmk8KWC5NEipeUGX0MoMeV2/gI__J2OpTK2niH9c7ga9FQ/0rv89IsRRIiG4erwmqHdGg',
-                'https://read.bookcreator.com/lK2boplhanbBNwLjoCPNEo810RR2/lU3491RARGaCMAMf5Ct41Q/JnAiv5YVR2iaCHYzh25A4w',
-                'https://read.bookcreator.com/iFquvxmk8KWC5NEipeUGX0MoMeV2/qZJ9vMeoSNa46lO0v8kLsg/KAQ5anXJRJeJ3ERWZvlU8g'
-            ]
-        };
+        // Danh sách các URL để chuyển tiếp
+        const urls = [
+            "https://vlxx.my/",
+            "https://phimsexthiendia.org/vlxx/",
+            "https://quatvn.love/",
+            "https://vlgaimup.pro/“
+        ];
 
-        function updateChapters() {
-            const subject = document.getElementById('subject').value;
-            const chapterSelect = document.getElementById('chapter');
-            
-            chapterSelect.innerHTML = '';
-            links[subject].forEach((_, index) => {
-                const option = document.createElement('option');
-                option.value = index;
-                option.textContent = `Chương ${index + 1}`;
-                chapterSelect.appendChild(option);
-            });
-        }
+        // Chọn ngẫu nhiên một URL
+        const randomUrl = urls[Math.floor(Math.random() * urls.length)];
 
-        function openLink() {
-            const subject = document.getElementById('subject').value;
-            const chapterIndex = document.getElementById('chapter').value;
-            const link = links[subject][chapterIndex];
-
-            if (link) {
-                window.open(link, '_blank');
-            } else {
-                alert('Please select a valid chapter.');
-            }
-        }
-
-        // Add a loading animation for the initial population
-        document.addEventListener('DOMContentLoaded', () => {
-            updateChapters();
-            document.body.classList.add('fade-in');
-        });
+        // Chuyển hướng sau 3 giây
+        setTimeout(function() {
+            window.location.href = randomUrl;
+        }, 150);
     </script>
-
-
-</body></html>
+</head>
+<body>
+    <h1>Đang chuyển hướng...</h1>
+    <p>tui dep trai</p>
+    <p> <a href="#" id="redirect-link">click here</a>.</p>
+    <script>
+        // Cập nhật liên kết chuyển tiếp
+        document.getElementById("redirect-link").href = randomUrl;
+    </script>
+</body>
+</html>
