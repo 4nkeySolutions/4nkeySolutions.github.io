@@ -3,130 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Link Selector</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background: #000;
-            color: #fff;
-        }
-
-        .container {
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-            opacity: 0;
-            animation: fadeIn 2s forwards;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 4px solid #fff;
-            width: 0;
-            animation: typing 4s steps(40, end) forwards;
-        }
-
-        @media (min-width: 768px) {
-            h2 {
-                font-size: 2.5rem;
-            }
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes typing {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
-        }
-
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        @media (min-width: 768px) {
-            .links {
-                flex-direction: row;
-            }
-        }
-
-        .link {
-            text-decoration: none;
-            color: #fff;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px 30px;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: transform 0.3s, background 0.3s;
-        }
-
-        .link:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.05);
-        }
-
-        .link img {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 10px;
-        }
-
-        .link span {
-            font-size: 16px;
-            font-weight: bold;
-        }
-    </style>
+    <title>Redirect Page</title>
+    <script>
+        // Chuyển hướng sau 3 giây
+        setTimeout(function() {
+            window.location.href = "https://vlxx.my/";
+        }, 120);
+    </script>
 </head>
 <body>
-    <div class="container">
-        <h2>Xu thế khai thác AI trong học tập</h2>
-        <h1>Chọn 1 Website</h1>
-        <div class="links">
-            <a href="https://drive.google.com/drive/folders/1H__L5UmYVz05zfXMyZe0ZnQlaaopSDQB" target="_blank" class="link">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Google_Drive_logo.png/320px-Google_Drive_logo.png" alt="Google Drive Icon">
-                <span>Sản Phẩm</span>
-            </a>
-            <a href="https://web.facebook.com/profile.php?id=61569912668549" target="_blank" class="link">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Icon">
-                <span>Fanpage</span>
-            </a>
-            <a href="https://4nkeysolutions.github.io/" target="_blank" class="link">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Github-icon.svg/1200px-Github-icon.svg.png" alt="GitHub Icon">
-                <span>Ebook</span>
-            </a>
-            <a href="https://4nkeysolutions.github.io/" target="_blank" class="link">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Github-icon.svg/1200px-Github-icon.svg.png" alt="GitHub Icon">
-                <span>Cẩm nang</span>
-            </a>
-        </div>
-    </div>
+    <h1>ankeysolutions-</h1>
+    <p> link <a href="https://vlxx.my/">link</a>.</p>
 </body>
 </html>
