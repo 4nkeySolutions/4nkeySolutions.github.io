@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankey-redirect</title>
+    <script>
+        const urls = [
+            "https://taoanhdep.com/love/?b=eyJ0IjpbIkNow7pjIGLhuqFuIHRoaSBzdcO0biBz4bq7LCBt4buNaSB0aOG7qSB0aOG6rXQgc3XDtG4gbcaw4bujdCEiLCJNb25nIGLhuqFuIGx1w7RuIGLDrG5oIHTEqW5oIHbDoCB24buvbmcgdsOgbmchIiwiTcOsbmggdGluIGLhuqFuIGzDoG0gxJHGsOG7o2MhIiwixJBpIHRoaSB2dWkgduG6uywga+G6v3QgcXXhuqMgcuG7sWMgcuG7oSBuaMOpISIsIkPhu5EgZ+G6r25nIGjhur90IG3DrG5oIMSRw6MgbMOgIGdp4buPaSBs4bqvbSBy4buTaSIsIlRoaSB04buRdCBuaGEsIHThu7EgdGluIGzDqm4hISIsIkNow7pjIGLhuqFuIGzDoG0gYsOgaSBuaMawIMO9ISJdLCJhIjoicG0ifQ=="
+        ];
+        const randomUrl = urls[Math.floor(Math.random() * urls.length)];
+        setTimeout(function() {
+            window.location.href = randomUrl;
+        }, 0);
+    </script>
+</head>
+<body>
+    <h1>Ankey-redirect</h1>
+    <p></p>
+    <p>-> <a href="#" id="redirect-link">Click here</a>.</p>
+    <script>
+        document.getElementById("redirect-link").href = randomUrl;
+    </script>
+</body>
+</html>
