@@ -1,0 +1,571 @@
+<html lang="vi"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ Sơ Cá Nhân</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #0f0f23;
+            overflow-x: hidden;
+        }
+
+        .section {
+            min-height: 100vh;
+            padding: 80px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Hero Section */
+        .section-1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
+        }
+
+        /* Profile Section */
+        .section-2 {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+        }
+
+        /* Document Section */
+        .section-3 {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+        }
+
+        /* Footer Section */
+        .section-4 {
+            background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+            color: white;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+
+        .intro-text {
+            font-size: 1.3rem;
+            text-align: center;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .info-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .info-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .info-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .image-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .image-container {
+            width: 350px;
+            height: 450px;
+            margin-top: 30px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .image-container:hover {
+            transform: scale(1.02);
+        }
+
+        .image-placeholder {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        .scroll-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            margin: 15px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .scroll-dot::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .scroll-dot.active {
+            background: rgba(59, 130, 246, 0.8);
+            transform: scale(1.3);
+        }
+
+        .scroll-dot.active::after {
+            opacity: 1;
+        }
+
+        /* Floating particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 8s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .guardian-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .guardian-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .guardian-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #3b82f6;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .footer-info {
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        .footer-badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-top: 20px;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .section { padding: 60px 15px; }
+            .profile-card { padding: 25px; }
+            .image-container { width: 280px; height: 360px; }
+            .scroll-indicator { right: 15px; }
+        }
+
+        @media (max-width: 480px) {
+            .profile-grid { grid-template-columns: 1fr; }
+            .guardian-info { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-dot active" onclick="scrollToSection(0)"></div>
+        <div class="scroll-dot" onclick="scrollToSection(1)"></div>
+        <div class="scroll-dot" onclick="scrollToSection(2)"></div>
+        <div class="scroll-dot" onclick="scrollToSection(3)"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="section section-1 visible">
+        <div class="particles"><div class="particle" style="left: 82.6047%; animation-delay: 0.976557s; animation-duration: 5.99248s;"></div><div class="particle" style="left: 0.268904%; animation-delay: 0.964606s; animation-duration: 5.67504s;"></div><div class="particle" style="left: 18.7583%; animation-delay: 6.86595s; animation-duration: 5.79954s;"></div><div class="particle" style="left: 82.4724%; animation-delay: 3.04465s; animation-duration: 6.6782s;"></div><div class="particle" style="left: 47.3503%; animation-delay: 6.57284s; animation-duration: 6.89723s;"></div><div class="particle" style="left: 83.3114%; animation-delay: 2.72677s; animation-duration: 7.00371s;"></div><div class="particle" style="left: 89.1891%; animation-delay: 0.653875s; animation-duration: 5.53338s;"></div><div class="particle" style="left: 69.8549%; animation-delay: 5.7386s; animation-duration: 5.78374s;"></div><div class="particle" style="left: 90.9113%; animation-delay: 2.46552s; animation-duration: 6.87681s;"></div><div class="particle" style="left: 1.71649%; animation-delay: 0.00183071s; animation-duration: 5.88399s;"></div><div class="particle" style="left: 56.5151%; animation-delay: 1.28441s; animation-duration: 5.52905s;"></div><div class="particle" style="left: 97.6162%; animation-delay: 2.83989s; animation-duration: 7.34265s;"></div><div class="particle" style="left: 77.5578%; animation-delay: 1.72233s; animation-duration: 5.12814s;"></div><div class="particle" style="left: 46.8956%; animation-delay: 6.57656s; animation-duration: 7.01376s;"></div><div class="particle" style="left: 9.38397%; animation-delay: 0.75189s; animation-duration: 5.10514s;"></div></div>
+        <div class="container">
+            <h1>Doxb1n</h1>
+            <p class="intro-text">
+                ONLY SIGMA!
+            </p>
+        </div>
+    </section>
+
+    <!-- Profile Information -->
+    <section class="section section-2">
+        <div class="particles"><div class="particle" style="left: 38.1213%; animation-delay: 7.72428s; animation-duration: 6.40575s;"></div><div class="particle" style="left: 71.6647%; animation-delay: 1.01487s; animation-duration: 6.94664s;"></div><div class="particle" style="left: 62.5682%; animation-delay: 2.15141s; animation-duration: 5.91343s;"></div><div class="particle" style="left: 57.5021%; animation-delay: 4.14902s; animation-duration: 7.02624s;"></div><div class="particle" style="left: 31.1558%; animation-delay: 5.05094s; animation-duration: 6.60265s;"></div><div class="particle" style="left: 39.0805%; animation-delay: 3.54005s; animation-duration: 6.28598s;"></div><div class="particle" style="left: 37.7566%; animation-delay: 7.56799s; animation-duration: 7.47547s;"></div><div class="particle" style="left: 36.9363%; animation-delay: 6.40894s; animation-duration: 6.0847s;"></div><div class="particle" style="left: 11.3069%; animation-delay: 1.44628s; animation-duration: 7.46295s;"></div><div class="particle" style="left: 29.175%; animation-delay: 0.764088s; animation-duration: 7.99583s;"></div><div class="particle" style="left: 27.1029%; animation-delay: 5.11497s; animation-duration: 7.63979s;"></div><div class="particle" style="left: 31.7937%; animation-delay: 0.407323s; animation-duration: 6.36331s;"></div><div class="particle" style="left: 93.1564%; animation-delay: 0.21718s; animation-duration: 5.94205s;"></div><div class="particle" style="left: 64.9244%; animation-delay: 2.67482s; animation-duration: 6.8193s;"></div><div class="particle" style="left: 86.2525%; animation-delay: 6.30645s; animation-duration: 6.24292s;"></div></div>
+        <div class="container">
+            <h2>Thông Tin Cá Nhân</h2>
+            <div class="profile-card">
+                <div class="profile-grid">
+                    <div class="info-item">
+                        <div class="info-label">Họ và Tên</div>
+                        <div class="info-value">Phạm Thị Vân Anh</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Ngày Sinh</div>
+                        <div class="info-value">29/07/2008</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Giới Tính</div>
+                        <div class="info-value">Nữ</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Dân Tộc</div>
+                        <div class="info-value">Kinh</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Quốc Tịch</div>
+                        <div class="info-value">Việt Nam</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Số CCCD</div>
+                        <div class="info-value">024308013401</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Nơi Sinh</div>
+                        <div class="info-value">Uông Bí - Quảng Ninh</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Địa Chỉ Hiện Tại</div>
+                        <div class="info-value">Khu Quỳnh Phú, Minh Thành, Quảng Yên, Quảng Ninh</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Ngày Nhập Học</div>
+                        <div class="info-value">09/09/2023</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Trạng Thái</div>
+                        <div class="info-value">Đang Học Tập</div>
+                    </div>
+                </div>
+
+                <div class="guardian-info">
+                    <div class="guardian-card">
+                        <div class="guardian-title">Thông Tin Cha</div>
+                        <div class="info-item">
+                            <div class="info-label">Họ Tên</div>
+                            <div class="info-value">Phạm Công Thiệp</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Nghề Nghiệp</div>
+                            <div class="info-value">Kỹ Sư</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Năm Sinh</div>
+                            <div class="info-value">1979</div>
+                        </div>
+                    </div>
+                    <div class="guardian-card">
+                        <div class="guardian-title">Thông Tin Mẹ</div>
+                        <div class="info-item">
+                            <div class="info-label">Họ Tên</div>
+                            <div class="info-value">Nguyễn Thị Vân</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Nghề Nghiệp</div>
+                            <div class="info-value">Giáo Viên</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Năm Sinh</div>
+                            <div class="info-value">1980</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Document Section -->
+    <section class="section section-3">
+        <div class="particles"><div class="particle" style="left: 53.137%; animation-delay: 2.27606s; animation-duration: 5.52367s;"></div><div class="particle" style="left: 98.1733%; animation-delay: 0.811763s; animation-duration: 7.79871s;"></div><div class="particle" style="left: 56.5356%; animation-delay: 7.61163s; animation-duration: 6.14285s;"></div><div class="particle" style="left: 38.4895%; animation-delay: 0.369778s; animation-duration: 5.35047s;"></div><div class="particle" style="left: 87.8748%; animation-delay: 2.01165s; animation-duration: 6.38542s;"></div><div class="particle" style="left: 58.1298%; animation-delay: 2.53774s; animation-duration: 5.65685s;"></div><div class="particle" style="left: 42.8435%; animation-delay: 2.31759s; animation-duration: 5.42355s;"></div><div class="particle" style="left: 73.5499%; animation-delay: 1.33174s; animation-duration: 6.59511s;"></div><div class="particle" style="left: 82.9749%; animation-delay: 5.38081s; animation-duration: 6.14828s;"></div><div class="particle" style="left: 23.0672%; animation-delay: 2.61049s; animation-duration: 5.61219s;"></div><div class="particle" style="left: 69.54%; animation-delay: 0.570693s; animation-duration: 5.82514s;"></div><div class="particle" style="left: 4.60139%; animation-delay: 6.39062s; animation-duration: 7.05867s;"></div><div class="particle" style="left: 75.5897%; animation-delay: 3.68391s; animation-duration: 7.57158s;"></div><div class="particle" style="left: 32.7848%; animation-delay: 6.61791s; animation-duration: 7.35976s;"></div><div class="particle" style="left: 83.5085%; animation-delay: 6.9324s; animation-duration: 5.60078s;"></div></div>
+        <div class="container">
+            <div class="image-section">
+                <h2>Hình Ảnh Chứng Minh</h2>
+                <p class="intro-text">Ảnh chụp từ giấy tờ tuy thân chính thức</p>
+                <div class="image-container">
+                    <div class="image-placeholder">
+                        📄<br>
+                        Không có hình ảnh<br>
+                        <small>Vui lòng liên hệ để cập nhật</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <section class="section section-4">
+        <div class="particles"><div class="particle" style="left: 36.2562%; animation-delay: 5.73355s; animation-duration: 7.9757s;"></div><div class="particle" style="left: 26.1928%; animation-delay: 3.47769s; animation-duration: 7.73376s;"></div><div class="particle" style="left: 65.0826%; animation-delay: 1.02106s; animation-duration: 6.01109s;"></div><div class="particle" style="left: 61.103%; animation-delay: 5.04307s; animation-duration: 5.66247s;"></div><div class="particle" style="left: 45.1485%; animation-delay: 3.45197s; animation-duration: 7.05785s;"></div><div class="particle" style="left: 82.8963%; animation-delay: 2.29164s; animation-duration: 6.09029s;"></div><div class="particle" style="left: 46.2644%; animation-delay: 5.33241s; animation-duration: 7.48134s;"></div><div class="particle" style="left: 29.7992%; animation-delay: 2.89324s; animation-duration: 7.30559s;"></div><div class="particle" style="left: 52.7752%; animation-delay: 5.54407s; animation-duration: 7.57966s;"></div><div class="particle" style="left: 25.1649%; animation-delay: 0.731246s; animation-duration: 5.98546s;"></div><div class="particle" style="left: 12.486%; animation-delay: 6.49845s; animation-duration: 6.21515s;"></div><div class="particle" style="left: 95.7368%; animation-delay: 2.11293s; animation-duration: 7.67582s;"></div><div class="particle" style="left: 96.6026%; animation-delay: 7.56649s; animation-duration: 6.98534s;"></div><div class="particle" style="left: 54.9883%; animation-delay: 3.32853s; animation-duration: 5.05952s;"></div><div class="particle" style="left: 94.0332%; animation-delay: 5.78163s; animation-duration: 6.44565s;"></div></div>
+        <div class="container">
+            <div class="image-section">
+                <h2>Thông Tin Báo Cáo</h2>
+                <div class="footer-info">
+                    <p class="intro-text">Hồ sơ được tổng hợp và báo cáo bởi</p>
+                    <div class="footer-badge">onlysigma666</div>
+                    <div class="image-container">
+                        <div class="image-placeholder">
+                            👤<br>
+                            Không có avatar<br>
+                            <small>Người báo cáo ẩn danh</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const sections = document.querySelectorAll('.particles');
+            sections.forEach(section => {
+                for (let i = 0; i < 15; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDelay = Math.random() * 8 + 's';
+                    particle.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                    section.appendChild(particle);
+                }
+            });
+        }
+
+        // Scroll to section function
+        function scrollToSection(index) {
+            const sections = document.querySelectorAll('.section');
+            sections[index].scrollIntoView({ behavior: 'smooth' });
+            
+            // Update active dot
+            const dots = document.querySelectorAll('.scroll-dot');
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+        }
+
+        // Update active dot on scroll
+        function updateScrollIndicator() {
+            const sections = document.querySelectorAll('.section');
+            const dots = document.querySelectorAll('.scroll-dot');
+            const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+            sections.forEach((section, index) => {
+                const sectionTop = section.offsetTop;
+                const sectionBottom = sectionTop + section.offsetHeight;
+
+                if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    if (dots[index]) dots[index].classList.add('active');
+                }
+            });
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            
+            // Observe all sections except the first one
+            document.querySelectorAll('.section:not(.section-1)').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Add scroll listener
+            window.addEventListener('scroll', updateScrollIndicator);
+            
+            // Initial indicator update
+            updateScrollIndicator();
+        });
+
+        // Smooth scroll behavior for older browsers
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+</body></html>
